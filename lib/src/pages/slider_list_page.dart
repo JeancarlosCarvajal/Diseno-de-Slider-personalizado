@@ -7,8 +7,8 @@ class SliderListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: _ListaTareas(), 
-      body: _Titulo(),  
+      body: _ListaTareas(), 
+      // body: _Titulo(),  
     );
   }
 }
@@ -52,22 +52,41 @@ class _Titulo extends StatelessWidget {
 }
 
 class _ListaTareas extends StatelessWidget {
-  const _ListaTareas({
+
+  final List<Widget> items = [
+    _ListItem(titulo: 'Orange', color: Color(0xffF08F66) ),
+    _ListItem(titulo: 'Family', color: Color(0xffF2A38A) ),
+    _ListItem(titulo: 'Subscriptions', color: Color(0xffF7CDD5) ),
+    _ListItem(titulo: 'Books', color: Color(0xffFCEBAF) ),
+    _ListItem(titulo: 'Orange', color: Color(0xffF08F66) ),
+    _ListItem(titulo: 'Family', color: Color(0xffF2A38A) ),
+    _ListItem(titulo: 'Subscriptions', color: Color(0xffF7CDD5) ),
+    _ListItem(titulo: 'Books', color: Color(0xffFCEBAF) ),
+  ];
+
+  _ListaTareas({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print('jean: ${items.length}');
+    
     return ListView.builder( 
-      itemCount: 20,
-      itemBuilder: (BuildContext context, int index) => _ListItem()
+      physics: BouncingScrollPhysics(),
+      itemCount: items.length,
+      itemBuilder: (BuildContext context, int index) => items[index]
     );
   }
 }
 
 class _ListItem extends StatelessWidget {
+  final String titulo;
+  final Color color;
   const _ListItem({
-    Key? key,
+    Key? key, 
+    required this.titulo, 
+    required this.color,
   }) : super(key: key);
 
   @override
@@ -77,12 +96,12 @@ class _ListItem extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       // color: Colors.red,
       decoration: BoxDecoration(
-        color: Colors.orange,
+        color: color,
         borderRadius: BorderRadius.circular(30)
       ),
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(30),
-      child: const Text( 'Jeancarlos', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20) ),
+      child: Text( titulo, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20) ),
     );
   }
 }
