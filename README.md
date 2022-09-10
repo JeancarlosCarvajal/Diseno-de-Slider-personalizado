@@ -6,6 +6,5 @@ Diseno de Silder que se contrae al hacer scroll
 
 ## Appearance Application
   
-<!-- ![Appearance 1](appearance/1.png)
-![Appearance 2](appearance/2.png)
-![Appearance 3](appearance/movie-1.gif) -->
+![Appearance 1](appearance/1.png) 
+![Appearance 3](appearance/1.gif)
